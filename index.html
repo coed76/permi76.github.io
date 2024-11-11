@@ -7,7 +7,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
-        /* Estilos generales para el tamaño carta */
         @media print {
             .buttons-container {
                 display: none;
@@ -29,12 +28,14 @@
             width: 100%;
             max-width: 21cm;
             height: auto;
+            max-height: 29.7cm;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
         }
 
         h1 {
@@ -47,7 +48,7 @@
         form {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
         .form-section {
@@ -80,20 +81,20 @@
 
         .form-group input, .form-group select, .form-group textarea {
             padding: 8px;
-            font-size: 14px;
+            font-size: 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
             width: 100%;
         }
 
         .signature-section {
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .signatures {
             display: flex;
             justify-content: space-around;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .signature-line {
@@ -102,7 +103,7 @@
         }
 
         .signature-space {
-            height: 50px;
+            height: 30px;
             border-bottom: 1px solid #000;
             margin-bottom: 5px;
         }
@@ -111,12 +112,12 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .buttons-container button {
             padding: 10px 20px;
-            font-size: 16px;
+            font-size: 14px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -204,14 +205,14 @@
             <div class="form-section">
                 <div class="form-group">
                     <label for="justificacion">Justificación o motivo por el que solicita el permiso</label>
-                    <textarea id="justificacion" name="justificacion" rows="3" required></textarea>
+                    <textarea id="justificacion" name="justificacion" rows="2" required></textarea>
                 </div>
             </div>
 
             <div class="form-section">
                 <div class="form-group">
                     <label for="acuerdo">Comentario: Es responsable es conocedor de la solicitud de permiso y el tiempo solicitado por el estudiante, por lo cual firma en FE de lo anterior.</label>
-                    <textarea id="acuerdo" name="acuerdo" rows="3"></textarea>
+                    <textarea id="acuerdo" name="acuerdo" rows="2"></textarea>
                 </div>
             </div>
 
