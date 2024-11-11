@@ -15,52 +15,51 @@
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            background-color: #f0f2f5;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #f4f4f9;
+            margin: 0;
         }
 
         .container {
             width: 100%;
             max-width: 21cm;
-            height: auto;
-            max-height: 29.7cm;
-            background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            margin: 15px;
         }
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
             font-size: 24px;
             font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00aaff;
+            padding-bottom: 10px;
         }
 
         form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
         .form-section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            padding: 10px;
+            background-color: #f9fafb;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
         }
 
         .form-row {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
 
         @media (min-width: 600px) {
@@ -77,29 +76,42 @@
 
         .form-group label {
             font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
         }
 
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 8px;
-            font-size: 12px;
-            border: 1px solid #ccc;
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            width: 100%;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #00aaff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 170, 255, 0.3);
         }
 
         .signature-section {
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .signatures {
             display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
+            justify-content: center;
+            gap: 50px;
         }
 
         .signature-line {
             text-align: center;
-            width: 40%;
+            width: 45%;
         }
 
         .signature-space {
@@ -111,20 +123,38 @@
         .buttons-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .buttons-container button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             font-size: 14px;
+            color: #ffffff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .buttons-container button:hover {
             opacity: 0.9;
+        }
+
+        .buttons-container .btn-new {
+            background-color: #28a745;
+        }
+
+        .buttons-container .btn-print {
+            background-color: #007bff;
+        }
+
+        .buttons-container .btn-whatsapp {
+            background-color: #25d366;
+        }
+
+        .buttons-container .btn-pdf {
+            background-color: #dc3545;
         }
     </style>
 </head>
@@ -211,7 +241,7 @@
 
             <div class="form-section">
                 <div class="form-group">
-                    <label for="acuerdo">Comentario: Es responsable es conocedor de la solicitud de permiso y el tiempo solicitado por el estudiante, por lo cual firma en FE de lo anterior.</label>
+                    <label for="acuerdo">Comentario: El responsable está informado de la solicitud de permiso y el tiempo solicitado por el estudiante, firmando en fe de lo anterior.</label>
                     <textarea id="acuerdo" name="acuerdo" rows="2"></textarea>
                 </div>
             </div>
@@ -227,16 +257,16 @@
         </form>
 
         <div class="buttons-container">
-            <button onclick="nuevoFormulario()">Nuevo Formulario</button>
-            <button onclick="window.print()">Imprimir</button>
-            <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
-            <button onclick="generarPDF()">Exportar a PDF</button>
+            <button class="btn-new" onclick="nuevoFormulario()">Nuevo Formulario</button>
+            <button class="btn-print" onclick="window.print()">Imprimir</button>
+            <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+            <button class="btn-pdf" onclick="generarPDF()">Exportar a PDF</button>
         </div>
     </div>
 
     <script>
         function nuevoFormulario() {
-            document.getElementById("formulario").reset();
+            document.querySelector("form").reset();
         }
 
         function enviarWhatsApp() {
@@ -253,10 +283,7 @@
             html2canvas(document.getElementById("formulario"), { scale: 2 }).then(canvas => {
                 const imgData = canvas.toDataURL("image/png");
                 const pdf = new jsPDF("p", "mm", "a4");
-                const imgWidth = 210;
-                const pageHeight = 297;
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                pdf.addImage(imgData, "PNG", 0, 0, imgWidth, pageHeight);
+                pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
                 pdf.save("SolicitudDePermiso.pdf");
             });
         }
