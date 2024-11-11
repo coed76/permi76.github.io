@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Conducta</title>
+    <title>Solicitud de Permiso</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <style>
@@ -121,7 +121,7 @@
 </head>
 <body>
     <div class="container" id="formulario">
-        <h1>REPORTE DE CONDUCTA</h1>
+        <h1>SOLICITUD DE PERMISO</h1>
         <form>
             <div class="form-section">
                 <div class="form-row">
@@ -184,11 +184,10 @@
                         <input type="text" id="subdirector" name="subdirector">
                     </div>
                     <div class="form-group">
-                        <label for="tipoFalta">Tipo de Falta</label>
-                        <select id="tipoFalta" name="tipoFalta">
-                            <option value="Leve">Leve</option>
-                            <option value="Moderada">Moderada</option>
-                            <option value="Grave">Grave</option>
+                        <label for="tiempoSolicitado">Tiempo Solicitado</label>
+                        <select id="tiempoSolicitado" name="tiempoSolicitado">
+                            <option value="Mañana">Turno de la mañana</option>
+                            <option value="Tarde">Turno de la tarde</option>
                         </select>
                     </div>
                 </div>
@@ -196,14 +195,14 @@
 
             <div class="form-section">
                 <div class="form-group">
-                    <label for="descripcion">Descripción de la Falta</label>
-                    <textarea id="descripcion" name="descripcion" rows="3" required></textarea>
+                    <label for="justificacion">Justificación o motivo por el que solicita el permiso</label>
+                    <textarea id="justificacion" name="justificacion" rows="3" required></textarea>
                 </div>
             </div>
 
             <div class="form-section">
                 <div class="form-group">
-                    <label for="acuerdo">Acuerdo con el Responsable</label>
+                    <label for="acuerdo">Comentario: Es responsable es conocedor de la solicitud de permiso y el tiempo solicitado por el estudiante, por lo cual firma en FE de lo anterior.</label>
                     <textarea id="acuerdo" name="acuerdo" rows="3"></textarea>
                 </div>
             </div>
@@ -212,11 +211,7 @@
                 <div class="signatures">
                     <div class="signature-line">
                         <div class="signature-space"></div>
-                        <p>Firma del Responsable</p>
-                    </div>
-                    <div class="signature-line">
-                        <div class="signature-space"></div>
-                        <p>Firma del Subdirector(a)</p>
+                        <p>Firma del padre, madre o responsable</p>
                     </div>
                 </div>
             </div>
@@ -239,7 +234,7 @@
             const telefono = document.getElementById("telefono").value;
             const nombre = document.getElementById("nombre").value;
             const fecha = document.getElementById("fecha").value;
-            const mensaje = `Reporte de conducta de ${nombre} - Fecha: ${fecha}`;
+            const mensaje = `Solicitud de permiso de ${nombre} - Fecha: ${fecha}`;
             const urlWhatsApp = `https://web.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
             window.open(urlWhatsApp, "_blank");
         }
@@ -265,7 +260,7 @@
                     heightLeft -= pageHeight;
                 }
 
-                pdf.save("ReporteDeConducta.pdf");
+                pdf.save("SolicitudDePermiso.pdf");
             });
         }
     </script>
