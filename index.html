@@ -21,13 +21,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f4f4f9;
         }
 
         .container {
-            width: 21cm;
-            height: 29.7cm;
+            width: 100%;
+            max-width: 21cm;
+            height: auto;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,7 +58,14 @@
 
         .form-row {
             display: flex;
+            flex-direction: column;
             gap: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .form-row {
+                flex-direction: row;
+            }
         }
 
         .form-group {
