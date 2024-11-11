@@ -149,10 +149,6 @@
             background-color: #007bff;
         }
 
-        .buttons-container .btn-whatsapp {
-            background-color: #25d366;
-        }
-
         .buttons-container .btn-pdf {
             background-color: #dc3545;
         }
@@ -259,7 +255,6 @@
         <div class="buttons-container">
             <button class="btn-new" onclick="nuevoFormulario()">Nuevo Formulario</button>
             <button class="btn-print" onclick="window.print()">Imprimir</button>
-            <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
             <button class="btn-pdf" onclick="generarPDF()">Exportar a PDF</button>
         </div>
     </div>
@@ -267,15 +262,6 @@
     <script>
         function nuevoFormulario() {
             document.querySelector("form").reset();
-        }
-
-        function enviarWhatsApp() {
-            const telefono = document.getElementById("telefono").value;
-            const nombre = document.getElementById("nombre").value;
-            const fecha = document.getElementById("fecha").value;
-            const mensaje = `Solicitud de permiso de ${nombre} - Fecha: ${fecha}`;
-            const urlWhatsApp = `https://web.whatsapp.com/send?phone=${telefono}&text=${encodeURIComponent(mensaje)}`;
-            window.open(urlWhatsApp, "_blank");
         }
 
         function generarPDF() {
