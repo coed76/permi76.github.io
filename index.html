@@ -3,274 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitud de Permiso</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <style>
-        @media print {
-            .buttons-container {
-                display: none;
-            }
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 21cm;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 25px;
-            margin: 15px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #00aaff;
-            padding-bottom: 10px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .form-section {
-            padding: 10px;
-            background-color: #f9fafb;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-
-        .form-row {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        @media (min-width: 600px) {
-            .form-row {
-                flex-direction: row;
-            }
-        }
-
-        .form-group {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .form-group input, 
-        .form-group select, 
-        .form-group textarea {
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #ffffff;
-            color: #333;
-        }
-
-        .form-group input:focus, 
-        .form-group select:focus, 
-        .form-group textarea:focus {
-            border-color: #00aaff;
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 170, 255, 0.3);
-        }
-
-        .signature-section {
-            margin-top: 20px;
-        }
-
-        .signatures {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-        }
-
-        .signature-line {
-            text-align: center;
-            width: 45%;
-        }
-
-        .signature-space {
-            height: 30px;
-            margin-bottom: 5px;
-        }
-
-        .buttons-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .buttons-container button {
-            padding: 12px 20px;
-            font-size: 14px;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .buttons-container button:hover {
-            opacity: 0.9;
-        }
-
-        .buttons-container .btn-new {
-            background-color: #28a745;
-        }
-
-        .buttons-container .btn-print {
-            background-color: #007bff;
-        }
-
-        .buttons-container .btn-pdf {
-            background-color: #dc3545;
-        }
-    </style>
+    <title>Venta de Licencias IBOPLAYER</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="formulario">
-        <h1>SOLICITUD DE PERMISO</h1>
-        <form>
-            <div class="form-section">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="fecha">Fecha</label>
-                        <input type="date" id="fecha" name="fecha" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="hora">Hora</label>
-                        <input type="time" id="hora" name="hora" required>
-                    </div>
-                </div>
-            </div>
 
-            <div class="form-section">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombre">Nombre del Estudiante</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="edad">Edad</label>
-                        <input type="number" id="edad" name="edad" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="grado">Grado</label>
-                        <select id="grado" name="grado" required>
-                            <option value="1° General">1° General</option>
-                            <option value="2° General">2° General</option>
-                            <option value="1° Técnico">1° Técnico</option>
-                            <option value="2° Técnico">2° Técnico</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="seccion">Sección</label>
-                        <select id="seccion" name="seccion" required>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="logo">IBOPLAYER</div>
+        <nav>
+            <a href="#planes">Planes</a>
+            <a href="#faq">Preguntas Frecuentes</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+        <a href="#planes" class="cta-button">Comprar Ahora</a>
+    </header>
 
-            <div class="form-section">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="responsable">Nombre del Responsable</label>
-                        <input type="text" id="responsable" name="responsable" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" name="telefono" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="subdirector">Nombre del Subdirector</label>
-                        <input type="text" id="subdirector" name="subdirector">
-                    </div>
-                    <div class="form-group">
-                        <label for="tiempoSolicitado">Tiempo Solicitado</label>
-                        <select id="tiempoSolicitado" name="tiempoSolicitado">
-                            <option value="Mañana">Turno de la mañana</option>
-                            <option value="Tarde">Turno de la tarde</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+    <!-- Bienvenida -->
+    <section class="bienvenida">
+        <h1>Activa IBOPLAYER en tu dispositivo favorito</h1>
+        <p>Disfruta de IBOPLAYER en tu Smart TV, Roku, iPhone, Android o PC con opciones de licencia para 1, 2 o 3 equipos.</p>
+        <a href="#planes" class="cta-button">Ver Planes de Licencias</a>
+    </section>
 
-            <div class="form-section">
-                <div class="form-group">
-                    <label for="justificacion">Justificación o motivo por el que solicita el permiso</label>
-                    <textarea id="justificacion" name="justificacion" rows="5" required></textarea>
-                </div>
-            </div>
+    <!-- Planes de Licencias -->
+    <section id="planes" class="planes">
+        <h2>Planes de Licencias</h2>
 
-            <div class="form-section">
-                <div class="form-group">
-                    <label for="acuerdo">Comentario: El responsable está informado de la solicitud de permiso y el tiempo solicitado por el estudiante, firmando en fe de lo anterior.
-                </div>
+        <!-- Plan: Para 1 Equipo -->
+        <div class="plan">
+            <h3>Para 1 Equipo</h3>
+            <p>Licencia para un solo dispositivo</p>
+            <div class="opcion">
+                <p><strong>1 año</strong> - $10 USD</p>
             </div>
-
-            <div class="signature-section">
-                <div class="signatures">
-                    <div class="signature-line">
-                        <div class="signature-space"></div>
-                        <p>Firma del padre, madre o responsable</p>
-                    </div>
-                </div>
+            <div class="opcion">
+                <p><strong>Permanente</strong> - $15 USD</p>
             </div>
-        </form>
-
-        <div class="buttons-container">
-            <button class="btn-new" onclick="nuevoFormulario()">Nuevo Formulario</button>
-            <button class="btn-print" onclick="window.print()">Imprimir</button>
-            <button class="btn-pdf" onclick="generarPDF()">Exportar a PDF</button>
+            <button>Seleccionar</button>
         </div>
-    </div>
 
-    <script>
-        function nuevoFormulario() {
-            document.querySelector("form").reset();
-        }
+        <!-- Plan: Para 2 Equipos -->
+        <div class="plan">
+            <h3>Para 2 Equipos</h3>
+            <p>Licencia para dos dispositivos</p>
+            <div class="opcion">
+                <p><strong>1 año</strong> - $18 USD (Ahorro: $2)</p>
+            </div>
+            <div class="opcion">
+                <p><strong>Permanente</strong> - $28 USD (Ahorro: $2)</p>
+            </div>
+            <button>Seleccionar</button>
+        </div>
 
-        function generarPDF() {
-            const { jsPDF } = window.jspdf;
-            html2canvas(document.getElementById("formulario"), { scale: 2 }).then(canvas => {
-                const imgData = canvas.toDataURL("image/png");
-                const pdf = new jsPDF("p", "mm", "a4");
-                pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
-                pdf.save("SolicitudDePermiso.pdf");
-            });
-        }
-    </script>
+        <!-- Plan: Para 3 Equipos -->
+        <div class="plan">
+            <h3>Para 3 Equipos</h3>
+            <p>Licencia para tres dispositivos</p>
+            <div class="opcion">
+                <p><strong>1 año</strong> - $24 USD (Ahorro: $3)</p>
+            </div>
+            <div class="opcion">
+                <p><strong>Permanente</strong> - $39 USD (Ahorro: $3)</p>
+            </div>
+            <button>Seleccionar</button>
+        </div>
+
+    </section>
+
+    <!-- Información Adicional -->
+    <section class="info-adicional">
+        <p>Nota: El precio de la licencia no incluye lista o servicio de contenidos. Esta licencia es únicamente para la activación de IBOPLAYER en tus dispositivos compatibles.</p>
+    </section>
+
+    <!-- Preguntas Frecuentes -->
+    <section id="faq" class="faq">
+        <h2>Preguntas Frecuentes</h2>
+        <details>
+            <summary>¿Qué es IBOPLAYER?</summary>
+            <p>IBOPLAYER es una aplicación para streaming en múltiples dispositivos.</p>
+        </details>
+        <details>
+            <summary>¿Qué dispositivos son compatibles?</summary>
+            <p>Smart TV, Roku, iPhone, Android y PC.</p>
+        </details>
+        <details>
+            <summary>¿Cómo puedo activar la licencia?</summary>
+            <p>Tras la compra, recibirás instrucciones detalladas para la activación.</p>
+        </details>
+    </section>
+
+    <!-- Contacto -->
+    <footer id="contacto">
+        <p>Contáctanos: <a href="mailto:soporte@iboplayer.com">soporte@iboplayer.com</a> | <a href="https://wa.me/+1234567890">WhatsApp</a></p>
+        <p>&copy; 2024 IBOPLAYER. Todos los derechos reservados.</p>
+    </footer>
+
 </body>
 </html>
